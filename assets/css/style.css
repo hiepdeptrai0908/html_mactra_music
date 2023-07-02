@@ -1,0 +1,280 @@
+:root {
+    --primary-color: #d33d10;
+    --text-color: #333;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+body {
+    background-image: linear-gradient(
+        to top right,
+        red,
+        #f06d06,
+        rgb(255, 255, 0),
+        rgb(19, 126, 71)
+    );
+}
+
+html {
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.fa-shop {
+    color: #4ac3bd;
+    margin-left: 15px;
+}
+
+.player {
+    position: relative;
+    max-width: 480px;
+    margin: 0 auto;
+    background-color: purple; /* Dành cho các trình duyệt không hỗ trợ gradient*/
+    background: #999;
+}
+
+.player .icon-pause {
+    display: none;
+}
+
+.player.playing .icon-pause {
+    display: inline-block;
+}
+
+.player.playing .icon-play {
+    display: none;
+}
+
+.dashboard {
+    padding: 16px 16px 14px;
+    background-color: #b8520f; /* Dành cho các trình duyệt không hỗ trợ gradient*/
+    background-image: linear-gradient(#ffc552, #ffa561);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+header h4 {
+    color: var(--text-color);
+    font-size: 16px;
+}
+
+header h2 {
+    color: var(--primary-color);
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* CD */
+.cd {
+    display: flex;
+    margin: auto;
+    width: 200px;
+}
+
+.cd-thumb {
+    width: 100%;
+    padding-top: 100%;
+    border-radius: 50%;
+    background-color: #333;
+    background-size: cover;
+    margin: auto;
+}
+
+/* CONTROL */
+.control {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 18px 0 8px 0;
+}
+
+.control .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 56px;
+    height: 56px;
+    line-height: 100%;
+    background-color: rgba(0, 0, 0);
+    border-radius: 50px;
+    color: var(--primary-color);
+    padding: 18px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.control .btn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.control .btn:hover {
+    color: rgb(224, 245, 107);
+}
+
+.control .btn.active {
+    color: #fff;
+}
+
+.control .btn-toggle-play {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    font-size: 24px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+}
+
+.btn-random,
+.btn-repeat {
+    position: relative;
+}
+
+.btn-repeat::before {
+    position: absolute;
+    content: "Lặp lại";
+    width: 100%;
+    font-size: 12px;
+    font-weight: 600;
+    top: -18px;
+    left: 0;
+    text-align: center;
+    color: black;
+}
+
+.btn-random::before {
+    position: absolute;
+    content: "Ngẫu Nhiên";
+    width: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    top: -18px;
+    left: -8px;
+    color: black;
+}
+
+.audio-time {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.current-time {
+    display: inline-block;
+    width: 12%;
+    font-weight: 600;
+}
+
+.duration-time {
+    display: inline-block;
+    width: 12%;
+    text-align: right;
+    font-weight: 600;
+}
+
+.progress {
+    width: 76%;
+    -webkit-appearance: none;
+    height: 15px;
+    background: #d3d3d3;
+    outline: solid 2px var(--primary-color);
+    opacity: 0.7;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.5s;
+    cursor: pointer;
+    border-radius: 50px;
+    display: inline-block;
+}
+
+.progress::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 13px;
+    height: 10px;
+    border-radius: 50px;
+    background-color: #333;
+    cursor: pointer;
+}
+
+/* PLAYLIST */
+.playlist {
+    margin-top: 395px;
+    padding: 12px;
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+.song {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    background-color: #fff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.index-song {
+    font-size: 16px;
+    font-weight: 600;
+    margin-right: 4px;
+}
+
+.song.active {
+    background-color: var(--primary-color);
+}
+
+.song:active {
+    opacity: 0.8;
+}
+
+.song.active .option,
+.song.active .index-song,
+.song.active .author,
+.song.active .title {
+    color: #fff;
+}
+
+.song .thumb {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-size: cover;
+    margin: 0 8px;
+}
+
+.song .body {
+    flex: 1;
+    padding: 0 16px;
+}
+
+.song .title {
+    font-size: 18px;
+    color: var(--text-color);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.song .author {
+    font-size: 12px;
+    color: #999;
+}
+
+.song .option {
+    padding: 16px 8px;
+    color: #999;
+    font-size: 18px;
+}
